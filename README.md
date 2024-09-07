@@ -10,13 +10,13 @@
 
 #### Checklist 2: Saya membuat aplikasi main dengan bantuan manage.py dan menambahkan main ke dalam INSTALLED_APPS pada berkas settings.py dalam direktori proyek (mental_health_tracker).
 
-#### Checklist 3:
+#### Checklist 3: Pertama, saya mengimpor fungsi include dari django.urls. Kemudian, saya menambahkan path ke halaman utama yang memiliki rute ke module main.urls.
 
 #### Checklist 4: Pertama, saya lihat tutorial 1 sebagai referensi. Kemudian, saya import models dari django.db. Kemudian, saya membuat model Product dengan atribut name, price, description, dan stock. Atribut ini tidak bersifat mutlak karena ada saya mungkin menambahkan atribut lainnya pada tugas berikutnya. Oleh karena itu, saya kasih atribut dasar dulu. Kemudian, saya makemigrations dan migrate dengan bantuan manage.py. Perintah makemigrations akan membuat berkas basis data dan perintah migrate akan menerapkan migrasi ke basis data lokal.
 
-#### Checklist 5: Pertama, saya membuat fungsi show_main yang menerima parameter request supaya bisa terima request pengguna. Kemudian, saya membuat context yang berisi nama dan kelas saya. Kemudian, saya kembalikan hasil fungsi render yang menerima parameter request, berkas html, dan isinya (context). Terakhir, saya ubah main.html supaya bisa menampilkan isi dari context.
+#### Checklist 5: Pertama, saya membuat fungsi show_main yang menerima parameter request supaya bisa terima request pengguna. Kemudian, saya membuat context yang berisi nama aplikasi, nama, dan kelas saya. Kemudian, saya kembalikan hasil fungsi render yang menerima parameter request, berkas html, dan isinya (context). Terakhir, saya ubah main.html supaya bisa menampilkan isi dari context.
 
-#### Checklist 6:
+#### Checklist 6: Pertama, saya impor path dari django.urls dan fungsi show_main dari modul main.views sebagai tampilan halaman. Kemudian, saya namakan app_name sebagai main sehingga menjadi nama unik pada pola url. Terakhir, saya menggunakan fungsi path dalam urlpatterns pergi ke route halaman utama dengan view berupa pemanggilan fungsi show_main dan name berupa show_main.
 
 #### Checklist 7:
 
@@ -26,8 +26,20 @@
 
 ### 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
 
+#### Jawab:
+
+#### a. Git berfungsi sebagai sistem kontrol versi perangkat lunak dengan cara memantau versi-versi suatu perangkat lunak. Hal ini bisa membantu para pengembang perangkat lunak (software developer) untuk uji coba suatu kode. Apabila kode berhasil, versi baru bisa disebarkan. Apabila gagal, mereka bisa kembali ke versi sebleumnya saja.
+
+#### b. Git juga berfungsi sebagai tempat kolaborasi dengan orang lain. Dengan Git, orang yang memiliki akses ke repositori tertentu bisa kerja sama untuk mengembangkan suatu perangkat lunak. Dengan lebih banyak orang yang kerja sama, suatu proyek perangkat lunak dapat dikembangkan dengan kecepatan yang lebih tinggi daripada seseorang buat sendiri.
+
+#### c. Git juga berfungsi sebagai tempat staging. Dengan fungsi ini, seorang pengembang perangkat lunak mampu memilih perubahan apa saja yang perlu di commit ddan perubahan apa saja yang tidak perlu di commit dulu.
+
 ### 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 
 #### Jawab: Menurut saya, Django dijadikan permulaan pembelajaran pengembangan perangkat lunak karena Django lumayan sederhana dan tidak terlalu rumit. Framework yang memiliki sifat ini cocok bagi pemula yang tidak memiliki pengalaman dalam menggunakan framework perangkat lunak. Bahkan, saya sendiri (yang tidak memiliki pengalaman pakai framework Django) merasa lumayan percaya diri saat menggunakan Django untuk membuat situs web. Hal ini bisa terjadi karena sifat Django yang sederhana dan tidak terlalu rumit sehingga situs web dapat dikembangkan dalam waktu singkat.
 
 ### 5. Mengapa model pada Django disebut sebagai ORM?
+
+#### Jawab: Model Django disebut sebagai ORM (Object-Relational Mapping) karena Django memiliki unsur relational model dan object-oriented data model. Unsur object-oriented data model bisa dilihat dengan jelas pada tugas ini karena dalam main.model terdapat class dengan atribut tertentu. Apabila ada class, berarti ada juga object. Unsur relational model juga ada di Django karena ada field OneToOneField, ForeignKey, ManyToManyField, dll yang merupakan bagian relational model. Namun, unsur relationship belum terlihat karena dua alasan spekulasi. Pertama, mata kuliah basis data belum diambil oleh semua mahasiswa semester 3 sehingga tidak ditaruh di PBP. Kedua, unsur relationship mungkin terlihat di tutorial berikutnya sehingga saya belum melihat implementasinya.
+
+##### Referensi: chatGPT, tutorial 0 dan 1 PBP,
