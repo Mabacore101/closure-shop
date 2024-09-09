@@ -1,6 +1,6 @@
 # closure-shop
 
-### Tautan ke aplikasi pws:
+### Tautan ke aplikasi pws: http://valentino-vieri-closureshop.pbp.cs.ui.ac.id/
 
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 
