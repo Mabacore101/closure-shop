@@ -18,7 +18,7 @@
 
 #### Checklist 6: Pertama, saya impor path dari django.urls dan fungsi show_main dari modul main.views sebagai tampilan halaman. Kemudian, saya namakan app_name sebagai main sehingga menjadi nama unik pada pola url. Terakhir, saya menggunakan fungsi path dalam urlpatterns pergi ke route halaman utama dengan view berupa pemanggilan fungsi show_main dan name berupa show_main.
 
-#### Checklist 7:
+#### Checklist 7: Pertama, saya buka halaman PWS dan login. Kemudian, saya create project dengan nama closureshop dan simpan credentials. Kemudian saya menambahkan URL deployment pws di ALLOWED_HOSTS yang berada di settings.py. Kemudian, saya ganti nama branch utama menjadi main. Terakhir, saya tekan view projects untuk melihat situs web.
 
 #### Checklist 8: Saya hanya menyalin tautan ke aplikasi pws dan jawab pertanyaan.
 
