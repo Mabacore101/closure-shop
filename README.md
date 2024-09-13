@@ -2,6 +2,8 @@
 
 ### Tautan ke aplikasi pws: http://valentino-vieri-closureshop.pbp.cs.ui.ac.id/
 
+### ===============TUGAS 2===============
+
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 
 #### Jawab:
@@ -47,5 +49,17 @@
 ### 5. Mengapa model pada Django disebut sebagai ORM?
 
 #### Jawab: Model Django disebut sebagai ORM (Object-Relational Mapping) karena Django memiliki unsur relational model dan object-oriented data model. Unsur object-oriented data model bisa dilihat dengan jelas pada tugas ini karena dalam main.model terdapat class dengan atribut tertentu. Apabila ada class, berarti ada juga object. Unsur relational model juga ada di Django karena ada field OneToOneField, ForeignKey, ManyToManyField, dll yang merupakan bagian relational model. Namun, unsur relationship belum terlihat karena dua alasan spekulasi. Pertama, mata kuliah basis data belum diambil oleh semua mahasiswa semester 3 sehingga tidak ditaruh di PBP. Kedua, unsur relationship mungkin terlihat di tutorial berikutnya sehingga saya belum melihat implementasinya.
+
+### ===============TUGAS 3===============
+
+### 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+### 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+### 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+
+### 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 ##### Referensi: chatGPT, tutorial 0 dan 1 PBP,
