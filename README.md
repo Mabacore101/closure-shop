@@ -52,6 +52,8 @@
 
 ### ===============TUGAS 3===============
 
+### Repositori ss Postman: https://drive.google.com/drive/folders/1tqC0R31jqp0sihBig_TOYF5xFnWRlhk3?usp=sharing
+
 ### 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 
 ### 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
