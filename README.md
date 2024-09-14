@@ -56,12 +56,34 @@
 
 ### 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 
+#### Jawab: Kita memerlukan data delivery dalam pengimplementasian sebuah platform karena beberapa alasan. Pertama, data delivery dapat menghemat waktu. Data delivery dapat memastikan pengguna menerima informasi yang dibutuhkan dalam waktu singkat. Kedua, data delivery dapat melakukan sinkronisasi data. Data delivery dapat memastikan data di lebih dari satu komponen dapat tersinkronisasi. Ketiga, data delivery dapat memastikan integritas data. Mekanisme data delivery yang baik dapat memastikan data akan dikirim dengan akurat dan tanpa korupsi selama perjalanan menuju pengguna. Sebenarnya terdapat lebih banyak alasan lainnya terkait kepentingan data delivery dalam pengimplementasian platform, tetapi saya hanya kasih beberapa saja supaya singkat.
+
 ### 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+#### Jawab: Menurut saya JSON lebih baik daripada XML karena cara JSON menampilkan data lebih mudah dilihat dan dipahami daripada XML. Berdasarkan Quora, JSON lebih populer dibandingkan XML karena tampilan JSON lebih sederhana daripada XML. Hal ini bisa terjadi karena XML awalnya juga sederhana, tetapi para ahli memutuskan untuk menambahkan berbagai fitur pada XML sehingga XML berubah dari sederhana menjadi sulit. Di sisi lain, JSON awalnya sederhana dan sampai sekarang masih sederhana. Hal ini bisa terjadi karena JSON tidak memiliki semua fitur yang ada pada XML sehingga JSON dapat mempertahankan tampilan sederhana.
 
 ### 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
 
+#### Jawab: Fungsi dari method is_valid() pada form Django adalah memvalidasi input. Setiap kali user menekan tombol submit pada form, method is_valid() akan periksa hasil input user dan tampilkan error apabila input tidak sesuai. Method is_valid() dibutuhkan karena beberapa alasan. Pertama, method is_valid() digunakan karena data yang dimasukkan pengguna perlu dipastikan sudah benar. Kedua, method is_valid() digunakan karena method ini bisa memberi error kepada pengguna apabila mereka melakukan kesalahan selama proses input data. Ketiga, method is_valid() digunakan karena kita perlu memastikan input yang dimasukkan pengguna tidak bersifat berbahaya, seperti SQL injection. Dengan method ini, kita dapat memastikan input sudah bersih dan mematuhi format yang diharapkan. Sebenarnya terdapat alasan lainnya terkait kebutuhan method is_valid(), tetapi saya hanya memberi tiga supaya sederhana.
+
 ### 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+#### Jawab: Kita membutuhkan csrf_token saat membuat form di Django karena csrf_token dapat mencegah serangan siber yang bernama cross site request forgery (csrf). Kalau kita tidak menambahkan csrf_token, kita bisa saja masuk situs web yang berbahaya dan situs itu meminta kita untuk melakukan hal di situs web lain. Misalnya, kita login dalam situs web bank dan kita pergi ke situs web berbahaya. Situs web berbahaya itu akan mengirim sebuah request untuk transfer uang menggunakan login cookie kita. Situs web bank akan mengira bahwa kita yang membuat request tersebut karena login cookie kita dipakai. Seorang penyerang dapat memanfaatkan aksi ini dengan cara menipu orang, membuat request berbahaya, dan menjalankan perintah.
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-##### Referensi: chatGPT, tutorial 0, 1, dan 2 PBP
+#### Jawab:
+
+#### Checklist 1:
+
+#### Checklist 2:
+
+#### Checklist 3:
+
+#### Checklist 4:
+
+#### Checklist 5:
+
+#### Checklist 6: Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
+
+##### Referensi: chatGPT, tutorial 0, 1, dan 2 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/)
