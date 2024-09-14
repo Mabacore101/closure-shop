@@ -62,4 +62,4 @@
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-##### Referensi: chatGPT, tutorial 0 dan 1 PBP,
+##### Referensi: chatGPT, tutorial 0, 1, dan 2 PBP
