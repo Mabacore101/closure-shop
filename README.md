@@ -86,4 +86,62 @@
 
 #### Checklist 6: Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
 
+### ===============TUGAS 4===============
+
+### 1. Apa perbedaan antara HttpResponseRedirect() dan redirect()
+
+#### Jawab: HttpResponseRedirect() adalah sebuah fungsi yang menerima sebuah url dan mengarahkan user ke url yang dituliskan sebagai argumen di dalamnya. Fungsi redirect() bekerja dengan cara yang mirip dengan HttpResponseRedirect(), tetapi redirect() bisa berisi argumen berupa url atau sebuah nama di view sehingga sifatnya lebih fleksibel dan mudah. Jadi, HttpResponseRedirect() adalah cara yang cepat untuk mengarahkan user ke url tertentu, sedangkan redirect() adalah cara yang mudah untuk mengarahkan user ke url tertentu tanpa harus mengisi argumen berupa url asli ke halaman tertentu.
+
+### 2. Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+
+### 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+
+#### Jawab: Authentication adalah proses verifikasi identitas pengguna sehingga sistem bisa mengetahui bahwa pengguna tersebut adalah siapa. Di sisi lain, authorization adalah proses menentukan pengguna mana yang telah lewati proses authentication bisa mengakses bagian mana di dalam sebuah sistem.
+
+#### Proses yang dilakukan saat pengguna login adalah seperti berikut. Pengguna pertama kali masukkan username dan password mereka pada form login. Kemudian, Django akan periksa data yang dimasukkan pengguna terhadap entri data yang berada di basis data. Terakhir, pengguna yang sudah diverifikasi akan diberikan akses ke suatu halaman tertentu. Dalam kasus tugas ini, pengguna akan diberikan akses ke halaman main setelah login berhasil. Ini termasuk bagian dari authorization.
+
+#### Django mengimplementasikan authentication dengan sistem dalam django.contrib.auth yang berisi fungsi seperti authenticate() dan login(). Dalam tugas ini, fungsi yang dipakai adalah login(). Dalam tugas ini, form yang dipakai dalam proses login adalah AuthenticationForm yang akan periksa input username dan password pengguna terhadap data dalam basis data. Kalau valid, pengguna akan diteruskan ke halaman utama setelah method login() mempertahankan sesi aktif pengguna sekarang. Di sisi lain, Django mengimplementasikan authorization dengan django.contrib.auth.decorators yang berisi decorators seperti @login_required (dalam tugas ini). Decorator @login_required akan periksa apakah pengguna sudah login atau belum. Kalau belum login, pengguna tidak diizinkan akses halaman main. Kalau sudah login, pengguna diizinkan akses ke halaman main.
+
+### 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+#### Jawab:
+
+#### Checklist 1 (Fungsi Registrasi, Login, dan Logout):
+
+#### a. Registrasi: Pertama, saya import UserCreationForm dan messages di views.py direktori aplikasi main. Kemudian, saya membuat fungsi register dalam views.py. Fungsi ini akan menerima input dari user dan melakukan tiga hal berikut:
+
+#### i. Simpan input user.
+
+#### ii. Tampilkan pesan berhasil
+
+#### iii. Return user ke halaman main.
+
+#### Selain itu, fungsi ini akan return sebuah halaman register.html yang menjadi sebuah halaman untuk user masukkan data supaya bisa login. Kemudian, saya membuat berkas register.html untuk menampilkan form ke user dalam bentuk tabel. Terakhir, saya import register ke urls.py dan membuat suatu path ke form register.
+
+#### b. Login: Pertama, saya import AuthenticationForm, login, dan authenticate di views.py untuk melakukan autentikasi login user. Kemudian, saya membuat fungsi login_user dalam views.py. Fungsi ini akan membuat form autentikasi untuk terima input user. Selain itu, fungsi ini akan melakukan autentikasi user sebelum return ke main page. Fungsi ini juga membersihkan form untuk input user baru dan return sebuah halaman login untuk user. Kemudian, saya membuat berkas login.html untuk mmenampilkan form login ke user dalam bentuk tabel. Terakhir, saya import login_user ke urls.py dan membuat suatu path ke form login.
+
+#### c. Logout: Pertama, saya import logout di views.py. Kemudian, saya membuat fungsi logout_user yang akan menghapus sesi user dan mengembalikkan user ke halaman main. Kemudian, saya membuat sebuah tombol logout di berkas main.html yang akan pergi ke bagian logout di path urls dan panggil fungsi logout_user. Terakhir, saya import logout_user ke urlls.py dan membuat suatu path untuk logout.
+
+#### Checklist 2 (2 akun 3 item): Pertama, saya jalankan `python manage.py runserver` dan pergi ke pranala lokal host, yaitu `http://localhost:8000/login/`. Kemudian, saya membuat dua akun baru dan masing-masing akun berisi tiga produk berbeda. Berikut adalah pranala drive menuju gambar konten kedua akun di lokal: https://drive.google.com/drive/folders/15YbtzMX7CLws6X3deIZ_Zva5nUmHaT2V?usp=drive_link
+
+#### Checklist 3 (Menghubungkan Product dengan User): Pertama, saya membuat sebuah user supaya produk awal bisa dihubungkan ke user pertama. Kemudian, saya import User ke models.py supaya bisa digunakan. Kemudian, saya tambahkan `user = models.ForeignKey(User, on_delete=models.CASCADE)` di model ProductEntry supaya produk bisa dihubungkan ke user melalui sebuah relationship. Kemudian, saya modifikasi bagian blok if di create_product_entry menjadi berikut:
+
+```python
+if form.is_valid() and request.method == "POST":
+        product_entry = form.save(commit=False)
+        product_entry.user = request.user
+        product_entry.save()
+        return redirect('main:show_main')
+```
+
+#### Kurang lebih, bagian ini akan menyimpan product_entry dulu tanpa simpan ke basis data. Setelah itu, kode ini akan menghubungkan produk ke objek User dari hasil request.user yang berupa user yang login. Setelah itu, kode ini akan simpan data tersebut ke basis data. Kemudian, saya saring/filter object produk sesuai objek user sekarang yang sedang login. Kemudian, saya ubah name menjadi username dari user yang sedang login ke halaman main. Kemudian saya jalankan `python manage.py makemigrations`. Kemudian, saya pilih opsi 1 untuk menetapkan default value untuk field user pada semua row yang sudah dibuat. Kemudian, saya tetapkan user dengan ID 1 pada model yang sudah ada. Kemudian, saya jalankan `python manage.py migrate`. Terakhir, saya import os di settings.py direktori proyek (closure_shop) dan ubah bagian DEBUG menjadi not PRODUCTION sehingga pws tidak rungkad dan bebannya lebih ringan di pws.
+
+#### Checklist 4 (Cookies, Login, Logout): Pertama, saya import datetime, HttpResponseRedirect, dan reverse. Kemudian, saya update fungsi login_user di blok `if form.is_valid()`. Blok ini akan melakukan login terlebih dahulu. Setelah itu, blok ini akan buat response berupa balik ke halaman main dan buat cookie last login yang ditambahkan ke dalam response. Kemudian, saya tambahkan `'last_login': request.COOKIES['last_login'],` di bagian context di views.py. Kode ini akan menambahkan informasi berupa waktu terakhir user login. Kemudian, saya update fungsi logout_user sehingga cookies last login bisa dihapus pas user logout dan kembali ke halaman utama. Terakhir, saya tambahkan tag html di paling bawah yang berisi informasi terakhir kali user login.
+
+#### Checklist 5 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 4 dan tulis jawaban di bagian tersebut.
+
+#### Checklist 6 (git add, commit, push): Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
+
 ##### Referensi: chatGPT, tutorial 0, 1, dan 2 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/), [Dokumentasi Django-CSRF](https://docs.djangoproject.com/en/5.1/ref/csrf/),
