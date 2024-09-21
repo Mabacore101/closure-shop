@@ -92,7 +92,9 @@
 
 #### Jawab: HttpResponseRedirect() adalah sebuah fungsi yang menerima sebuah url dan mengarahkan user ke url yang dituliskan sebagai argumen di dalamnya. Fungsi redirect() bekerja dengan cara yang mirip dengan HttpResponseRedirect(), tetapi redirect() bisa berisi argumen berupa url atau sebuah nama di view sehingga sifatnya lebih fleksibel dan mudah. Jadi, HttpResponseRedirect() adalah cara yang cepat untuk mengarahkan user ke url tertentu, sedangkan redirect() adalah cara yang mudah untuk mengarahkan user ke url tertentu tanpa harus mengisi argumen berupa url asli ke halaman tertentu.
 
-### 2. Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+### 2. Jelaskan cara kerja penghubungan model Product dengan User!
+
+#### Jawab: Model Product dihubungkan dengan User melalui Foreign Key ke entity User. Foreign key adalah sebuah atribut dari Product yang dihubungkan ke primary key dari User sehingga terbentuk suatu relasi. Foreign key ini harus bersifat unik sehingga tidak mungkin ada produk yang sama dipetakan ke user berbeda. Selain itu, primary key user juga dijamin unik sehingga peluang dua user dapat saling lihat product mereka menjadi kecil, bahkan bisa mendekati 0. Dengan cara inilah, model Product dapat dihubungkan dengan User tertentu.
 
 ### 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
 
@@ -103,6 +105,10 @@
 #### Django mengimplementasikan authentication dengan sistem dalam django.contrib.auth yang berisi fungsi seperti authenticate() dan login(). Dalam tugas ini, fungsi yang dipakai adalah login(). Dalam tugas ini, form yang dipakai dalam proses login adalah AuthenticationForm yang akan periksa input username dan password pengguna terhadap data dalam basis data. Kalau valid, pengguna akan diteruskan ke halaman utama setelah method login() mempertahankan sesi aktif pengguna sekarang. Di sisi lain, Django mengimplementasikan authorization dengan django.contrib.auth.decorators yang berisi decorators seperti @login_required (dalam tugas ini). Decorator @login_required akan periksa apakah pengguna sudah login atau belum. Kalau belum login, pengguna tidak diizinkan akses halaman main. Kalau sudah login, pengguna diizinkan akses ke halaman main.
 
 ### 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+
+#### Jawab: Django mengingat pengguna yang telah login dengan membuat sebuah session ID. Setelah user lolos tahap verifikasi/authentication dari Django, Django langsung membuat session ID dan simpan ID tersebut di basis data. Selain itu, setiap kali user melakukan request, browser mengirimkan sebuah session cookie kepada server. Dengan informasi cookie ini, Django mampu mengambil session ID yang sesuai untuk user tersebut.
+
+#### Selain session management, cookies juga digunakan untuk personalisasi, keranjang belanja, dan tracking. Semua hal ini dapat dilakukan karena cookies menyimpan informasi terkait user sehingga situs web mampu mengingat pengaturan dan preferensi user. Walaupun cookies berguna, cookies dapat bersifat bahaya. Pertama, cookies yang dikirim melalui website http saja dapat diambil hacker dengan cara sniffing. Apabila hacker memiliki cookie ini, mereka dapat menggunakan cookie tersebut untuk menipu situs web bahwa mereka adalah user yang terverifikasi. Kedua, cookies menyimpan informasi user yang dapat dibocorkan. Apabila cookies tidak disimpan dengan baik, seorang hacker mampu pakai cookie tersebut untuk mengetahui informasi terkait user dan menjualnya apabila mengandung data sensitif. Ketiga, cookies yang dipakai untuk tracking mampu membuat iklan menjadi lebih personalisasi ke user tertentu. Hal ini tentu saja mengurangi privasi user selama melakukan proses pencarian di internet karena setiap gerakan mereka mampu dilacak.
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
