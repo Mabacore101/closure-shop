@@ -150,4 +150,20 @@ if form.is_valid() and request.method == "POST":
 
 #### Checklist 6 (git add, commit, push): Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
 
-##### Referensi: chatGPT, tutorial 0, 1, dan 2 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/), [Dokumentasi Django-CSRF](https://docs.djangoproject.com/en/5.1/ref/csrf/),
+### ===============TUGAS 5===============
+
+### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+#### Jawab: CSS selector memiliki empat urutan prioritas. Prioritas pertama adalah inline styles seperti `<h1 style="color: green;">` yang memiliki nilai spesifisitas 1000. Prioritas kedua adalah IDs seperti #home yang memiliki nilai spesifisitas 100. Prioritas ketiga adalah class, pseudo class, dan attribute selectors seperti .sample, :click, dan [href] yang memiliki nilai spesifisitas 10. Prioritas keempat adalah elements dan pseudo elements seperti h2 dan ::after yang memiliki nilai spesifisitas 1. Selain itu, CSS ada satu tag, yaitu !important yang mampu override semua selector, bahkan inline styles akan dioverride.
+
+### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+
+#### Jawab: Disklaimer: Jawaban saya pada soal ini hanya sebuah contoh dan saya tidak bermaksud untuk mempromosikan atau merendahkan aplikasi tersebut. Responsive design menjadi konsep penting dalam pengembangan aplikasi web karena desain ini meningkatkan penampilan aplikasi web. Apabila kita membuat aplikasi web tanpa responsive design, aplikasi web kita bisa saja terlihat berbeda atau terlihat buruk di perangkat layar kecil seperti handphone dan tablet. Dengan responsive design, kita mampu mengatur tampilan aplikasi web kita pada perangkat yang berbeda sehingga tampilannya baik dan elegan. Beberapa contoh aplikasi yang sudah menerapkan responsive design adalah [Tokopedia] (https://www.tokopedia.com/), [Shopee](https://shopee.co.id/), dan [Arknights](https://www.arknights.global/). Apabila kita buka aplikasi web ini pada perangkat berbeda seperti laptop dan hp, tampilannya terlihat berbeda dan indah di kedua perangkat tersebut. Beberapa contoh aplikasi yang belum menerapkan responsive design adalah [SIAKNG](https://academic.ui.ac.id/main/Authentication/), [Webmail UI](https://webmail.ui.ac.id/roundcube2/?_task=logout), dan [siasisten](https://siasisten.cs.ui.ac.id/login/). Apabila kita buka aplikasi web ini pada perangkat berbeda seperti laptop dan hp, tampilannya terlihat berbeda dan tampilannya di hp terlihat kecil sehingga perlu di zoom supaya bisa lihat lebih baik. Saya ingin menyampaikan sekali lagi, contoh dalam jawaban ini hanya merupakan contoh dan berdasarkan fakta dan tidak bermaksud untuk mempromosikan atau merendahkan aplikasi tersebut.
+
+### 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+### 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+##### Referensi: chatGPT, tutorial 0, 1, 2, 3, dan 4 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/), [Dokumentasi Django-CSRF](https://docs.djangoproject.com/en/5.1/ref/csrf/), [W3 Schools-CSS Specificity](https://www.w3schools.com/css/css_specificity.asp), [Why is Responsive Design So Important?](https://www.webfx.com/web-design/learn/why-responsive-design-important/)
