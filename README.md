@@ -206,7 +206,13 @@ if form.is_valid() and request.method == "POST":
 
 #### Tujuan kode di atas adalah menambahkan primary key product_entry sebagai parameter yang akan diteruskan ke method delete_product di views.py.
 
-#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind.
+#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind. Kemudian saya melakukan hal berikut untuk masing-masing subschecklist pada checklist 2:
+
+#### a. Kustomisasi halaman login, register, tambah product, dan edit product:
+
+#### b. Kustomisasi daftar product:
+
+####
 
 #### Checklist 3 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 5 dan tulis jawaban di bagian tersebut.
 
