@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <h1>{{ app_name }}</h1>
 
-
-<h5>NPM: </h5>
-<p>{{ npm }}<p>
+<h5>NPM:</h5>
+<p>{{ npm }}</p>
+<p></p>
 
 <h5>Name:</h5>
 <p>{{ name }}</p>
@@ -24,12 +23,24 @@
   </tr>
 
   {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
-  {% endcomment %} 
+  {%endcomment %} 
   {% for product_entry in product_entries %}
   <tr>
     <td>{{product_entry.name}}</td>
     <td>{{product_entry.price}}</td>
     <td>{{product_entry.description}}</td>
+    <td>
+      <a href="{% url 'main:edit_product' product_entry.pk %}">
+        <button>Edit</button>
+      </a>
+    </td>
+    <td>
+      <a href="{% url 'main:delete_product' product_entry.pk %}">
+          <button>
+              Delete
+          </button>
+      </a>
+    </td>
   </tr>
   {% endfor %}
 </table>

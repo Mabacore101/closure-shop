@@ -74,7 +74,7 @@
 
 #### Jawab:
 
-#### Checklist 1: Pertama, saya buat direktori templates pada direktori root. Kemudian, saya buat base.html pada direktori templates dengan isi berupa template html sehingga saya cukup menggunakan base.html untuk membuat suatu halaman baru. Kemudian saya menambahkan `'DIRS': [BASE_DIR / 'templates'],` pada bagian TEMPLATES di settings.py direktori proyek (closure_shop). Kemudian, saya buat file forms.py pada direktori main. Isi forms.py berupa import ModelForm dan ProductEntry, variabel model untuk menunjukkan saya pakai model ProductEntry, dan fields pada form dengan elemen name, price, dan description. Kemudian, saya import method redirect di views.py main. Kemudian, saya membuat method create_mood_entry dengan parameter request. Kemudian, saya taruh `form = ProductEntryForm(request.POST or None)` untuk membuat ProductEntryForm baru dengan memasukkan QueryDict berdasarkan input user pada request.POST. Kemudian, saya periksa apakah input user valid dan method yang diminta berupa POST. Apabila true, form akan disimpan dan user diarahkan kembali ke halaman main. Kemudian, saya buat dictionary bernama context dengan key form dan value berupa input yang dimasukkan user. Kemudian, saya return render yang akan terima request user, tampilkan create_product_entry.html sebagai halaman form dengan context berupa dictionary. Kemudian, saya update method show_main dengan menampung semua product entry di dalam sebuah variabel dan mengisi context dengan key product_entries dan value berupa isi dari product entry. Kemudian, saya import create_product_entry pada urls.py main dan buat path untuk form product entry. Kemudian, saya buat berkas create_product_entry.html pada direktori templates di main. Dengan berkas ini, saya dapat menampilkan form dalam bentuk tabel dengan csrf_token di atas form untuk mencegah csrf. Terakhir, saya menambahkan kode tambahan di main.html. Inti dari kode tambahan adalah periksa apakah isi product_entries kosong atau tidak. Kalau kosong, kode akan cetak belum ada product. Kalau ada isi, kode akan cetak header tabel dengan isinya berupa hasil input pengguna.
+#### Checklist 1: Pertama, saya buat direktori templates pada direktori root. Kemudian, saya buat base.html pada direktori templates dengan isi berupa template html sehingga saya cukup menggunakan base.html untuk membuat suatu halaman baru. Kemudian saya menambahkan `'DIRS': [BASE_DIR / 'templates'],` pada bagian TEMPLATES di settings.py direktori proyek (closure_shop). Kemudian, saya buat file forms.py pada direktori main. Isi forms.py berupa import ModelForm dan ProductEntry, variabel model untuk menunjukkan saya pakai model ProductEntry, dan fields pada form dengan elemen name, price, dan description. Kemudian, saya import method redirect di views.py main. Kemudian, saya membuat method create_product_entry dengan parameter request. Kemudian, saya taruh `form = ProductEntryForm(request.POST or None)` untuk membuat ProductEntryForm baru dengan memasukkan QueryDict berdasarkan input user pada request.POST. Kemudian, saya periksa apakah input user valid dan method yang diminta berupa POST. Apabila true, form akan disimpan dan user diarahkan kembali ke halaman main. Kemudian, saya buat dictionary bernama context dengan key form dan value berupa input yang dimasukkan user. Kemudian, saya return render yang akan terima request user, tampilkan create_product_entry.html sebagai halaman form dengan context berupa dictionary. Kemudian, saya update method show_main dengan menampung semua product entry di dalam sebuah variabel dan mengisi context dengan key product_entries dan value berupa isi dari product entry. Kemudian, saya import create_product_entry pada urls.py main dan buat path untuk form product entry. Kemudian, saya buat berkas create_product_entry.html pada direktori templates di main. Dengan berkas ini, saya dapat menampilkan form dalam bentuk tabel dengan csrf_token di atas form untuk mencegah csrf. Terakhir, saya menambahkan kode tambahan di main.html. Inti dari kode tambahan adalah periksa apakah isi product_entries kosong atau tidak. Kalau kosong, kode akan cetak belum ada product. Kalau ada isi, kode akan cetak header tabel dengan isinya berupa hasil input pengguna.
 
 #### Checklist 2: Pertama, saya import HttpResponse dan serializer. Kemudian, saya membuat method show_xml yang menerima request. Di dalam method tersebut, saya simpan semua data object ke dalam variabel data. Selain itu, method tersebut akan mengembalikan sebuah HttpResponse yang mengubah data ke dalam bentuk xml dan content_type berupa application/xml. Kemudian, saya ulangi cara yang sama seperti method show_xml untuk membuat method show_json. Perbedaanya hanya terletak pada penggantian setiap kata xml dengan json. Cara kerjanya juga mirip dengan xml, hanya datanya yang diubah menjadi bentuk json. Kemudian, saya membuat method show_xml_by_id yang menerima request dan sebuah id. Isi method tersebut mirip dengan show_xml. Perbedaannya hanya .all() diubah menjadi .filter(pk=id) yang akan mencari object berdasarkan id unik sebagai primary key dan simpan ke dalam data. Method ini juga mengembalikan hal yang sama seperti method show_xml. Kemudian, saya ulangi cara yang sama seperti method show_xml_by_id untuk method show_json_by_id. Kemudian, saya hanya mengubah semua kata xml dengan json.
 
@@ -158,12 +158,58 @@ if form.is_valid() and request.method == "POST":
 
 ### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
 
-#### Jawab: Disklaimer: Jawaban saya pada soal ini hanya sebuah contoh dan saya tidak bermaksud untuk mempromosikan atau merendahkan aplikasi tersebut. Responsive design menjadi konsep penting dalam pengembangan aplikasi web karena desain ini meningkatkan penampilan aplikasi web. Apabila kita membuat aplikasi web tanpa responsive design, aplikasi web kita bisa saja terlihat berbeda atau terlihat buruk di perangkat layar kecil seperti handphone dan tablet. Dengan responsive design, kita mampu mengatur tampilan aplikasi web kita pada perangkat yang berbeda sehingga tampilannya baik dan elegan. Beberapa contoh aplikasi yang sudah menerapkan responsive design adalah [Tokopedia] (https://www.tokopedia.com/), [Shopee](https://shopee.co.id/), dan [Arknights](https://www.arknights.global/). Apabila kita buka aplikasi web ini pada perangkat berbeda seperti laptop dan hp, tampilannya terlihat berbeda dan indah di kedua perangkat tersebut. Beberapa contoh aplikasi yang belum menerapkan responsive design adalah [SIAKNG](https://academic.ui.ac.id/main/Authentication/), [Webmail UI](https://webmail.ui.ac.id/roundcube2/?_task=logout), dan [siasisten](https://siasisten.cs.ui.ac.id/login/). Apabila kita buka aplikasi web ini pada perangkat berbeda seperti laptop dan hp, tampilannya terlihat berbeda dan tampilannya di hp terlihat kecil sehingga perlu di zoom supaya bisa lihat lebih baik. Saya ingin menyampaikan sekali lagi, contoh dalam jawaban ini hanya merupakan contoh dan berdasarkan fakta dan tidak bermaksud untuk mempromosikan atau merendahkan aplikasi tersebut.
+#### Jawab: Disklaimer: Jawaban saya pada soal ini hanya sebuah contoh dan saya tidak bermaksud untuk mempromosikan atau merendahkan aplikasi tersebut. Responsive design menjadi konsep penting dalam pengembangan aplikasi web karena desain ini meningkatkan penampilan aplikasi web. Apabila kita membuat aplikasi web tanpa responsive design, aplikasi web kita bisa saja terlihat berbeda atau terlihat buruk di perangkat layar kecil seperti handphone dan tablet. Dengan responsive design, kita mampu mengatur tampilan aplikasi web kita pada perangkat yang berbeda sehingga tampilannya baik dan elegan. Beberapa contoh aplikasi yang sudah menerapkan responsive design adalah [Tokopedia](https://www.tokopedia.com/), [Shopee](https://shopee.co.id/), dan [Arknights](https://www.arknights.global/). Apabila kita buka aplikasi web ini pada perangkat berbeda seperti laptop dan hp, tampilannya terlihat berbeda dan indah di kedua perangkat tersebut. Beberapa contoh aplikasi yang belum menerapkan responsive design adalah [SIAKNG](https://academic.ui.ac.id/main/Authentication/), [Webmail UI](https://webmail.ui.ac.id/roundcube2/?_task=logout), dan [siasisten](https://siasisten.cs.ui.ac.id/login/). Apabila kita buka aplikasi web ini pada perangkat berbeda seperti laptop dan hp, tampilannya terlihat berbeda dan tampilannya di hp terlihat kecil sehingga perlu di zoom supaya bisa lihat lebih baik. Saya ingin menyampaikan sekali lagi, contoh dalam jawaban ini hanya merupakan contoh dan berdasarkan fakta dan tidak bermaksud untuk mempromosikan atau merendahkan aplikasi tersebut.
 
 ### 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
 
+#### Jawab: Margin adalah ruang terluar dari suatu elemen. Margin digunakan untuk memisahkan sebuah elemen dengan elemen lain. Margin bisa diimplementasikan secara menyeluruh (seperti `margin: 20px;`) atau satu per satu (seperti `margin-top: 10px;`).
+
+#### Border adalah sebuah garis antara margin dan padding yang bisa diubah dengan styling tertentu, seperti dotted, solid, dashed, dll. Border bisa diimplementasikan dengan dua cara seperti margin. Cara pertama adalah secara menyeluruh, seperti `border: 5px dotted purple;`. Cara kedua adalah secara satu per satu, seperti `border-right: 5px solid green;`.
+
+#### Padding adalah ruang antara border dan konten. Padding digunakan untuk membuat sebuah ruang di dalam border tertentu supaya konten terlihat lebih rapi. Padding bisa diimplementasikan dengan dua cara seperti margin dan border. Cara pertama adalah secara menyeluruh, seperti `padding: 17px;`. Cara kedua adalah secara satu per satu, seperti `pading-bottom: 15px;`.
+
 ### 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
 
+#### Jawab: Flexbox adalah sebuah desain satu dimensi seperti baris atau kolom. Flexbox bisa mengatur posisi, arah, ruang antara komponen dalam sebuah kontainer. Flexbox digunakan untuk membuat navigation bar, kartu, menaruh elemen di tengah, dll. Di sisi lain, grid layout adalah desain dua dimensi seperti suatu tabel yang memiliki baris dan kolom. Grid layout adalah suatu desain yang lebih kompleks daripada flexbox. Grid layout digunakan untuk layout kompleks, galeri gambar, antarmuka dashboard, dll.
+
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+#### Jawab:
+
+#### Checklist 1 (Edit dan Delete):
+
+#### Fungsi edit: Pertama, saya buat fungsi edit_product di views.py. Fungsi ini akan menerima request dan object id, cari product yang mau diubah, tampilkan form kepada user, simpan hasil perubahan, dan tampilkan halaman main kepada user. Kemudian, saya buat berekas edit_product.html di direktori templates yang menjadi tampilan utama form edit product. Kemudian, saya import edit_product di urls.py. Kemudian, saya membuat path url di dalam urlpatterns supaya fungsi edit_product bisa diakses. Terakhir, saya tambahkan kode berikut sejajar dengan elemen td lainnya di main.html:
+
+```
+    <td>
+        <a href="{% url 'main:edit_product' product_entry.pk %}">
+            <button>
+                Edit
+            </button>
+        </a>
+    </td>
+```
+
+#### Tujuan kode di atas adalah menambahkan primary key product_entry sebagai parameter yang akan diteruskan ke method edit_product di views.py.
+
+#### Fungsi delete: Pertama, saya buat fungsi delete_product di views.py. Fungsi ini akan menerima request dan object id, cari product yang mau dihapus, dan hapuskan product tersebut. Kemudian, saya import delete_product di urls.py. Kemudian, saya membuat path url di urlpatterns menuju fungsi yang sudah diimpor. Terakhir, saya tambahkan kode berikut sejajar dengan elemen td lainnya di main.html:
+
+```
+    <td>
+        <a href="{% url 'main:delete_product' product_entry.pk %}">
+            <button>
+                Delete
+            </button>
+        </a>
+    </td>
+```
+
+#### Tujuan kode di atas adalah menambahkan primary key product_entry sebagai parameter yang akan diteruskan ke method delete_product di views.py.
+
+#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind.
+
+#### Checklist 3 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 5 dan tulis jawaban di bagian tersebut.
+
+#### Checklist 4 (git add, commit, push): Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
 
 ##### Referensi: chatGPT, tutorial 0, 1, 2, 3, dan 4 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/), [Dokumentasi Django-CSRF](https://docs.djangoproject.com/en/5.1/ref/csrf/), [W3 Schools-CSS Specificity](https://www.w3schools.com/css/css_specificity.asp), [Why is Responsive Design So Important?](https://www.webfx.com/web-design/learn/why-responsive-design-important/)
