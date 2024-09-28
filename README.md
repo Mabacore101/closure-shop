@@ -212,7 +212,9 @@ if form.is_valid() and request.method == "POST":
 
 #### b. Kustomisasi daftar product:
 
-####
+#### c. Card Product:
+
+#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4. Kemudian, saya tambahkan tag <a></a> untuk Home dan Create Product Entry yang memiliki fungsi redirect ke halaman utama dan form create product entry. Terakhir, saya tambahkan navbar di main.html, edit_product.html, dan main.html.
 
 #### Checklist 3 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 5 dan tulis jawaban di bagian tersebut.
 

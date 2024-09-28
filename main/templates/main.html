@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
 
 <h1>{{ app_name }}</h1>
 
@@ -22,8 +22,8 @@
     <th>Description</th>
   </tr>
 
-  {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
-  {%endcomment %} 
+  <!--Berikut cara memperlihatkan data product di bawah baris ini -->
+
   {% for product_entry in product_entries %}
   <tr>
     <td>{{product_entry.name}}</td>
@@ -36,9 +36,7 @@
     </td>
     <td>
       <a href="{% url 'main:delete_product' product_entry.pk %}">
-          <button>
-              Delete
-          </button>
+        <button>Delete</button>
       </a>
     </td>
   </tr>
