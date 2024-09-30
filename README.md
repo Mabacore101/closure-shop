@@ -218,11 +218,11 @@ if form.is_valid() and request.method == "POST":
 
 #### iv. Edit product: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah warnanya seperti warna di halaman tambah product. Terakhir, saya mengubah warna button di bagian bawah sehingga mirip dengan button register, sign in, dan add new product entry.
 
-#### b. Kustomisasi daftar product: Pertama, saya salin dari tutorial 4. Kemudian, saya taruh gambar bernama empty.png yang merupakan gambar yang ditampil saat toko kosong di atas pesan toko kosong. Kemudian, saya hapuskan efek-efek yang ada pada card tutorial 4. Kemudian, saya ubah warna card dan tombol edit dan delete menjadi teks.
+#### b. Kustomisasi daftar product: Pertama, saya salin dari tutorial 4. Kemudian, saya taruh gambar bernama empty.png yang merupakan gambar yang ditampil saat toko kosong di atas pesan toko kosong. Kemudian, saya hapuskan efek-efek yang ada pada card tutorial 4. Terakhir, saya ubah warna card.
 
-#### c. Button Edit dan Delete:
+#### c. Button Edit dan Delete: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah tombol edit dan delete menjadi teks. Kemudian, saya mengubah bentuk tombol edit dan delete supaya berbeda. Terakhir, saya tambahkan popup konfirmasi apakah mau delete item tersebut atau tidak.
 
-#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4. Kemudian, saya tambahkan tag <a></a> untuk Home dan Create Product Entry yang memiliki fungsi redirect ke halaman utama dan form create product entry. Terakhir, saya tambahkan navbar di main.html, edit_product.html, dan main.html.
+#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4.
 
 #### Checklist 3 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 5 dan tulis jawaban di bagian tersebut.
 
