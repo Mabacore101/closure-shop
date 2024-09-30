@@ -206,9 +206,17 @@ if form.is_valid() and request.method == "POST":
 
 #### Tujuan kode di atas adalah menambahkan primary key product_entry sebagai parameter yang akan diteruskan ke method delete_product di views.py.
 
-#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind. Kemudian saya melakukan hal berikut untuk masing-masing subschecklist pada checklist 2:
+#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind. Kemudian, saya import font Monospace dari Google Fonts dan set semua teks di body menjadi Monospace di global.css. Kemudian saya melakukan hal berikut untuk masing-masing subschecklist pada checklist 2:
 
 #### a. Kustomisasi halaman login, register, tambah product, dan edit product:
+
+#### i. Halaman login: Pertama, saya salin dari tutorial 4. Kemudian, saya tanya teman saya tentang cara mengganti warna dan animasi. Dalam login.html, saya ganti warna buttton sign in dari indigo dengan hexcode dua warna berbeda dan hover delay 300ms sehingga animasinya lebih elegan. Kemudian, saya ganti warna teks register supaya lebih mudah dilihat dan menarik.
+
+#### ii. Register: Pertama, saya salin dari tutorial 4. Kemudian, saya coba melihat elemen yang mau saya ubah. Kemudian, saya ubah button Register sehingga efek dan warnanya mirip dengan button sign in di login.html. Kemudian, saya ubah warna teks Login Here seperti warna teks register dan atur hover delay 300ms. Kemudian, saya ubah warna border form menjadi warna yang sama dengan button sebelum dihover.
+
+#### iii.Tambah product: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah warna background. Kemudian, saya mengubah warna form dan button di bagian bawah sehingga mirip dengan button register dan sign in.
+
+#### iv. Edit product:
 
 #### b. Kustomisasi daftar product:
 
@@ -221,3 +229,5 @@ if form.is_valid() and request.method == "POST":
 #### Checklist 4 (git add, commit, push): Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
 
 ##### Referensi: chatGPT, tutorial 0, 1, 2, 3, dan 4 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/), [Dokumentasi Django-CSRF](https://docs.djangoproject.com/en/5.1/ref/csrf/), [W3 Schools-CSS Specificity](https://www.w3schools.com/css/css_specificity.asp), [Why is Responsive Design So Important?](https://www.webfx.com/web-design/learn/why-responsive-design-important/)
+
+##### Collaborator: Thorbert Anson Shi
