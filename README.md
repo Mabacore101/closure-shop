@@ -206,21 +206,21 @@ if form.is_valid() and request.method == "POST":
 
 #### Tujuan kode di atas adalah menambahkan primary key product_entry sebagai parameter yang akan diteruskan ke method delete_product di views.py.
 
-#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind. Kemudian, saya import font Monospace dari Google Fonts dan set semua teks di body menjadi Monospace di global.css. Kemudian saya melakukan hal berikut untuk masing-masing subschecklist pada checklist 2:
+#### Checklist 2 (Kustomisasi desain): Pertama, saya tambahkan meta tag viewport agar halaman web dapat menyesuaikan ukuran dan perilaku perangkat mobile. Kemudian, saya menyambungkan template Django dengan Tailwind. Kemudian, saya import font Monospace dari Google Fonts dan set semua teks di body menjadi Monospace di global.css. Kemudian, saya ubah warna border menjadi warna jingga di global.css. Kemudian saya melakukan hal berikut untuk masing-masing subschecklist pada checklist 2:
 
 #### a. Kustomisasi halaman login, register, tambah product, dan edit product:
 
-#### i. Halaman login: Pertama, saya salin dari tutorial 4. Kemudian, saya tanya teman saya tentang cara mengganti warna dan animasi. Dalam login.html, saya ganti warna buttton sign in dari indigo dengan hexcode dua warna berbeda dan hover delay 300ms sehingga animasinya lebih elegan. Kemudian, saya ganti warna teks register supaya lebih mudah dilihat dan menarik.
+#### i. Halaman login: Pertama, saya salin dari tutorial 4. Kemudian, saya tanya teman saya tentang cara mengganti warna dan animasi. Dalam login.html, saya ganti warna buttton sign in dari indigo dengan hexcode dua warna berbeda dan hover delay 300ms sehingga animasinya lebih elegan. Terakhir, saya ganti warna teks register supaya lebih mudah dilihat dan menarik.
 
-#### ii. Register: Pertama, saya salin dari tutorial 4. Kemudian, saya coba melihat elemen yang mau saya ubah. Kemudian, saya ubah button Register sehingga efek dan warnanya mirip dengan button sign in di login.html. Kemudian, saya ubah warna teks Login Here seperti warna teks register dan atur hover delay 300ms. Kemudian, saya ubah warna border form menjadi warna yang sama dengan button sebelum dihover.
+#### ii. Register: Pertama, saya salin dari tutorial 4. Kemudian, saya coba melihat elemen yang mau saya ubah. Kemudian, saya ubah button Register sehingga efek dan warnanya mirip dengan button sign in di login.html. Kemudian, saya ubah warna teks Login Here seperti warna teks register dan atur hover delay 300ms. Terakhir, saya ubah warna border form menjadi warna yang sama dengan button sebelum dihover.
 
-#### iii.Tambah product: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah warna background. Kemudian, saya mengubah warna form dan button di bagian bawah sehingga mirip dengan button register dan sign in.
+#### iii.Tambah product: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah warna background. Terakhir, saya mengubah warna form dan button di bagian bawah sehingga mirip dengan button register dan sign in.
 
-#### iv. Edit product:
+#### iv. Edit product: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah warnanya seperti warna di halaman tambah product. Terakhir, saya mengubah warna button di bagian bawah sehingga mirip dengan button register, sign in, dan add new product entry.
 
-#### b. Kustomisasi daftar product:
+#### b. Kustomisasi daftar product: Pertama, saya salin dari tutorial 4. Kemudian, saya taruh gambar bernama empty.png yang merupakan gambar yang ditampil saat toko kosong di atas pesan toko kosong. Kemudian, saya hapuskan efek-efek yang ada pada card tutorial 4. Kemudian, saya ubah warna card dan tombol edit dan delete menjadi teks.
 
-#### c. Card Product:
+#### c. Button Edit dan Delete:
 
 #### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4. Kemudian, saya tambahkan tag <a></a> untuk Home dan Create Product Entry yang memiliki fungsi redirect ke halaman utama dan form create product entry. Terakhir, saya tambahkan navbar di main.html, edit_product.html, dan main.html.
 
