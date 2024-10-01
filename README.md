@@ -222,7 +222,7 @@ if form.is_valid() and request.method == "POST":
 
 #### c. Button Edit dan Delete: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah tombol edit dan delete menjadi teks. Kemudian, saya mengubah bentuk tombol edit dan delete supaya berbeda. Terakhir, saya tambahkan popup konfirmasi apakah mau delete item tersebut atau tidak.
 
-#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4.
+#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4. Kemudian, saya terapkan algoritma GSGSCICILTT (Google Sana Google Sini Coba Itu Coba Ini Lalu Tanya Tanyi).
 
 #### Checklist 3 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 5 dan tulis jawaban di bagian tersebut.
 
