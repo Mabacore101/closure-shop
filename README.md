@@ -222,7 +222,7 @@ if form.is_valid() and request.method == "POST":
 
 #### c. Button Edit dan Delete: Pertama, saya salin dari tutorial 4. Kemudian, saya mengubah tombol edit dan delete menjadi teks. Kemudian, saya mengubah bentuk tombol edit dan delete supaya berbeda. Terakhir, saya tambahkan popup konfirmasi apakah mau delete item tersebut atau tidak.
 
-#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4. Kemudian, saya terapkan algoritma GSGSCICILTT (Google Sana Google Sini Coba Itu Coba Ini Lalu Tanya Tanyi).
+#### d. Navigation Bar (Navbar): Pertama, saya salin template navbar dari tutorial 4. Kemudian, saya terapkan algoritma GSGSCICILTT (Google Sana Google Sini Coba Itu Coba Ini Lalu Tanya Tanyi). Kemudian, saya membuat flexbox baru untuk menyimpan elemen navbar seperti Home dan Add New Product Entry. Flexbox ini memiliki tag hidden supaya tidak terlihat saat layarnya kecil. Kemudian, saya tambah elemen Home dan Add New Product Entry di drop down bagian Mobile menu yang tidak terlihat di layar desktop yang lebar tanpa pakai inspect. Terakhir, saya coba fungsionalitasnya dengan cara inspect website dan atur menjadi ukuran handphone.
 
 #### Checklist 3 (Jawab pertanyaan): Saya hanya menambahkan bagian untuk jawaban tugas 5 dan tulis jawaban di bagian tersebut.
 
