@@ -1,8 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block meta %}
 <title>Closure Shop</title>
-{% endblock meta %} {% block content %}
-<!--Include me please!-->
-{% include 'navbar.html' %}
+{% endblock meta %} {% block content %} {% include 'navbar.html' %}
 <div
   class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gray-100 flex flex-col"
 >
@@ -41,7 +39,7 @@
       class="w-32 h-32 mb-4"
     />
     <p class="text-center text-gray-600 mt-4">
-      Belum ada product pada {{app_name}}.
+      You haven't bought any products in {{app_name}}.
     </p>
   </div>
   {% else %}
