@@ -228,6 +228,66 @@ if form.is_valid() and request.method == "POST":
 
 #### Checklist 4 (git add, commit, push): Pertama, saya menjalankan perintah `git add .` untuk menambahkan semua file yang berubah pada staging. Kedua, saya menjalankan perintah `git commit -m "[Pesan]"` untuk merekam perubahan yang sudah masuk staging di history repositori. Terakhir, saya menjalankan perintah `git push origin main` untuk mendorong perubahan ke branch main repositori closure-shop di GitHub saya.
 
+### ===============TUGAS 6===============
+
+### 1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+
+#### Jawab: Pertama, JavaScript memungkinkan konten dinamis dan interaktif. Dengan JavaScript, suatu aplikasi web dapat memiliki fitur yang interaktif, seperti form, animasi, dan update informasi langsung tanpa refresh situs web. Kedua, JavaScript diproses di sisi pengguna. Hal ini dapat memungkinkan suatu aplikasi web tampil dengan lebih cepat karena server hanya perlu kirim suatu berkas JavaScript yang akan dijalankan pada browser pengguna. Selain itu, kemampuan ini dapat mengurangi beban kerja server sehingga bisa proses lebih banyak request. Ketiga, JavaScript dapat memungkinkan pemrograman asinkron. JavaScript memiliki fitur seperti promises, async, dan await. Fitur ini mampu melakukan request ke server secara asinkron sehingga pengguna tidak perlu refresh aplikasi web supaya hasilnya tampil pada layarnya.
+
+### 2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+
+#### Jawab: Await berfungsi untuk mengatur sifat asinkron dalam web dan mencegah promise yang belum diatur. Ketika kita menggunakan fetch(), await akan menghentikan eksekusi fungsi asinkron sampai request fetch() selesai. Selain itu, await mampu mencegah sebuah Promise untuk dikembalikan langsung setelah fetch(). Hal ini dapat mencegah perintah lainnya untuk langsung tereksekusi ketika kita memanggil fetch(). Apabila kita tidak menggunakan await, kita bisa mendapatkan error. Hal ini dapat terjadi ketika data belum selesai diambil dan kode berikutnya langsung proses data yang belum selesai diambil. Oleh karena itu, await perlu dipakai supaya data yang diambil pakai fetch() selesai sebelum kode pemrosesan data.
+
+### 3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+
+#### Jawab: Kita perlu menggunakan decorator csrf_exmpt pada view karena kita butuh lewati proteksi csrf Django. Ketika menggunakan AJAX POST, kita perlu menyertakan csrf token ke form. Apabila kita tidak menyertakan csrf token ke form, kita akan mendapatkan pesan error. Kita dapat mengatasi error ini dengan decorator csrf_exmpt. Decorator csrf_exempt akan mengabaikan proses pemeriksaan csrf_token pada operasi yang tidak perlu autentikasi sehingga AJAX POST tidak perlu menyertakan csrf token ke form setiap kali kita tekan tombol submit.
+
+### 4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+
+#### Jawab: Pembersihan data input perlu dilakukan di backend juga karena hal tersebut lebih aman daripada di frontend saja. Apabila kita hanya memiliki pembersihan data di front end saja, seorang hacker dapat manipulasi kode front end supaya data berbahaya dapat tembus tahap pembersihan data di front end. Setelah itu, data berbahaya tersebut terkirim ke backend dan merusak server atau melanggar integritas data. Pembersihan data di backend diperlukan supaya data berbahaya dibersikan dan dicegat supaya tidak merusak server dan menimbulkan masalah integritas data. Oleh karena itu, pembersihan data input pengguna juga dilakukan pada backend supaya meningkatkan keamanan.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+#### Jawab: 
+
+#### a. AJAX GET
+#### i. Ubahlah kode cards data produk agar dapat mendukung AJAX GET: Pertama, saya hapus blok kondisional product_entry berikut:
+```
+{% if not product_entries %}
+  <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+    <img
+      src="{% static 'image/empty.png' %}"
+      alt="Empty"
+      class="w-32 h-32 mb-4"
+    />
+    <p class="text-center text-gray-600 mt-4">
+      You haven't bought any products in {{app_name}}.
+    </p>
+  </div>
+  {% else %}
+  <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
+    {% for product_entry in product_entries %} 
+    {% include 'card_product.html' with product_entry=product_entry %} 
+    {% endfor %}
+  </div>
+{% endif %}
+```
+#### Kemudian, saya tambahkan tag `<div id="product_entry_cards"></div>` sebagai tempat taruh card_product.
+
+#### ii. Lakukan pengambilan data produk menggunakan AJAX GET. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang logged-in: Pertama, saya hapuskan baris `product_entries = Product.objects.filter(user=request.user)` dan `'product_entries': product_entries,`. Kemudian, saya ubah baris pertama show_xml dan show_json. Kemudian, saya tambahkan script yang akan mengambil API ke data json secara asinkron dan parese json sebagai objek JavaScript di bagian bawah main.html. Terakhir, saya tambahkan script dengan fungsi refreshProductEntries. Intinya, fungsi ini akan mencari id product_entry_cards dan mengisinya dengan nama class dan html sehingga muncul kartu produk.
+
+#### b. AJAX POST
+#### i. Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan produk. Modal di-trigger dengan menekan suatu tombol pada halaman utama. Saat penambahan produk berhasil, modal harus ditutup dan input form harus dibersihkan dari data yang sudah dimasukkan ke dalam form sebelumnya. Jika penambahan gagal, tampilkan pesan error: Pertama, saya salin kode dari tutorial. Kemudian, saya modifikasi bagiannya satu per satu serta pahami maksud suatu baris. Bagian modal memiliki tiga bagian, yaitu header, body, dan footer. Header berisi judul form serta opsi untuk tutup form. Body berisi bagian utama form dengan placeholder untuk tampung input user. Footer berisi tombol cancel dan save form. Kemudian, saya tambahkan script dari tutorial supaya modal dapat berfungsi. Kemudian, saya update tombol Add New Product Entry dan taruh versi AJAXnya di sebelah kanan.
+
+#### ii. Buatlah fungsi view baru untuk menambahkan produk baru ke dalam basis data: Pertama, saya import csrf_exempt dan require_POST di views.py. Kemudian, saya buat fungsi bernama add_product_entry_ajax. Pertama, fungsi ini akan mengambil data nama, harga, deskripsi barang, serta user. Kemudian, fungsi ini akan membuat objek Product baru yang akan disimpan ke dalam basis data sebelum return HttpResponse berhasil.
+
+#### iii. Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat: Pertama, saya import create_product_entry_ajax ke dalam urls.py. Kemudian, saya membuat suatu path dengan nama yang sama sebagai url menuju fungsi yang baru dibuat.
+
+#### iv. Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/: Pertama, saya membuat fungsi addProductEntry. Kemudian, saya isi fungsi ini supaya fungsi ini bisa ambil data dari add_product_entry_ajax dan refresh secara otomatis. Kemudian, fungsi ini akan hapus semua entry pada form sehingga siap untuk terima input baru.
+
+#### v. Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar produk terbaru tanpa reload halaman utama secara keseluruhan: Fungsionalitas ini telah diterapkan pada poin iv. Intinya, fungsi pada poin iv akan refresh tampilan product entry yang baru secara otomatis. Terakhir, saya tambahkan script supaya fungsi addProductEntry ada event listener berupa penekanan tombol submit.
+
+
 ##### Referensi: chatGPT, tutorial 0, 1, 2, 3, dan 4 PBP, [Quora-Why is JSON so popular](https://www.quora.com/Why-is-JSON-so-popular), [Dokumentasi Django-Forms](https://docs.djangoproject.com/en/5.1/topics/forms/), [Dokumentasi Django-CSRF](https://docs.djangoproject.com/en/5.1/ref/csrf/), [W3 Schools-CSS Specificity](https://www.w3schools.com/css/css_specificity.asp), [Why is Responsive Design So Important?](https://www.webfx.com/web-design/learn/why-responsive-design-important/)
 
 ##### Collaborator: Thorbert Anson Shi
